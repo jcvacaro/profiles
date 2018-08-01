@@ -5,10 +5,7 @@ if not GetKeyState("LButton") {
 } else {
 	Click, up
 	clipboard =
-	Send, {RButton}
-	Sleep, 250
-	Send, {Down}
-	Send, {Enter}
+	Send, ^c
 	ClipWait, 2
 	MsgBox % clipboard
 }
