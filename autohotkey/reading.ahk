@@ -1,6 +1,6 @@
 ﻿NumpadAdd::
 F1::
-if GetKeyState("LButton", "T") {
+if not GetKeyState("LButton") {
 	Click, down
 } else {
 	Click, up
