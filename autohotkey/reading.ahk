@@ -1,9 +1,17 @@
-﻿NumpadAdd::
-F1::
+﻿!NumpadClear::WheelUp
+!NumpadDown::WheelDown
+NumpadClear::^!Up
+NumpadDown::^!Down
+NumpadEnd::^!Left
+NumpadPgDn::^!Right
+NumpadLeft::LButton
+NumpadRight::RButton
+
+NumpadHome::
 if not GetKeyState("LButton") {
-	Click, down
+	Click, Down
 } else {
-	Click, up
+	Click, Up
 	clipboard =
 	Send, ^c
 	ClipWait, 2
@@ -11,7 +19,16 @@ if not GetKeyState("LButton") {
 }
 return
 
-F3::
+NumpadUp::
+Click, Down 3
+Click, Up
+clipboard =
+Send, ^c
+ClipWait, 2
+MsgBox % clipboard
+return
+
+NumpadPgUp::
 Send, #{ESC}
 Run, snippingtool
 WinWaitActive, Snipping Tool, , 2
@@ -23,7 +40,7 @@ Sleep, 500
 Send, #{NumpadAdd}
 return
 
-+F3::
+!NumpadPgUp::
 SetWorkingDir, C:\Users\vacaro\Pictures
 
 FileDelete, t1.tiff
